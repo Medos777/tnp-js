@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>medos777</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+
+    body{
+      background-image: url("m.gif");
+  background-repeat: repeat-y;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>MEDOS777</h4>
+       <img src="medos.png" class="img-circle" height="65" width="65" alt="Avatar">
+       <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="quiz.html">Home</a></li>
+        <li><a href="snake.html">game</a></li>
+        <li><a href="drow.html">drow</a></li>
+        <li><a href="geo.html">geo</a></li>
+        <li><a href="watch.html">watch</a></li>
+               <li><a href="drag.html">drag&drop</a></li>
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h4><small>location </small></h4>
+      <hr>
+      <h2>Click the button to get your coordinates.</h2>
+   
+      
+      
+    
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p></div>
+
+      <hr>
+      <h2>Officially Blogging</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> 
+<video id="video1" controls width="570"  autoplay>
+  <source src="bunny.ogv" type='video/mp4'>
+</video>
+
+<canvas id="myCanvas" width="600" height="400" style="border:1px solid black;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="m.png" class="img-circle" height="95" width="95" alt="medos777">
+        </div>
+        <div class="col-sm-10">
+          <h4>Anja <small>de 10, 2019, 9:12 PM</small></h4>
+          <p>Keep up the GREAT work! I am cheering for you!! </p>
+          <br>
+        </div>
+        <div class="col-sm-2 text-center">
+          <img src="medos.png" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+         
+          <p><span class="badge">1</span> Comment:</p><br>
+          <div class="row">
+            <div class="col-sm-2 text-center">
+              <img src="medos.png" class="img-circle" height="65" width="65" alt="Avatar">
+            </div>
+            <div class="col-xs-10">
+              <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
+              <p>Me too! WOW!</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+
+var v = document.getElementById("video1");
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var i;
+
+v.addEventListener("play", function() {i = window.setInterval(function() {ctx.drawImage(v,10,15,570,350)},20);}, false);
+v.addEventListener("pause", function() {window.clearInterval(i);}, false);
+v.addEventListener("ended", function() {clearInterval(i);}, false); 
+</script>
+</body>
+</html>
+

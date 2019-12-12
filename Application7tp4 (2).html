@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<video id="video1" controls width="570"  autoplay>
+  <source src="bunny.ogv" type='video/mp4'>
+</video>
+
+<canvas id="myCanvas" width="600" height="400" style="border:1px solid black;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var v = document.getElementById("video1");
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var i;
+
+v.addEventListener("play", function() {i = window.setInterval(function() {ctx.drawImage(v,10,15,570,350)},20);}, false);
+v.addEventListener("pause", function() {window.clearInterval(i);}, false);
+v.addEventListener("ended", function() {clearInterval(i);}, false); 
+</script>
+
+</body>
+</html>
